@@ -1,6 +1,5 @@
-# Version: 1.0.1
+# Version: 1.1.0
 
-import pymol
 from pymol import cmd 
 import os
 import sys
@@ -40,8 +39,19 @@ def parse_arguments():
 # Get arguments
 PDB_FILENAME, OUTPUT_FILENAME = parse_arguments()
 
-PDB_FILE_PATH = os.path.join(SCRIPT_DIR, PDB_FILENAME)
-OUTPUT_GLTF_PATH = os.path.join(SCRIPT_DIR, OUTPUT_FILENAME)
+def resolve_path(path, base_dir):
+    """
+    If `path` is absolute, return it unchanged.
+    If `path` is relative, resolve it relative to `base_dir`.
+    """
+    if os.path.isabs(path):
+        return path
+    return os.path.join(base_dir, path)
+
+# Resolve input and output paths
+PDB_FILE_PATH = os.path.normpath(resolve_path(PDB_FILENAME, SCRIPT_DIR))
+OUTPUT_GLTF_PATH = os.path.normpath(resolve_path(OUTPUT_FILENAME, SCRIPT_DIR))
+
 
 # --- Main PyMOL Execution Block ---
 
