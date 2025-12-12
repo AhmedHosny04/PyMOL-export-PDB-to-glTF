@@ -1,7 +1,7 @@
 
 -----
 
-# PyMOL Molecular Visualization to GLTF/GLB Exporter
+# PyMOL Molecular Visualization to GLTF Exporter
 
 This utility provides a robust, headless (non-GUI) method to convert Protein Data Bank (PDB) files into high-quality, Mol\*-styled 3D assets in the **glTF** format, ready for integration into web or mobile applications (e.g., Flutter).
 

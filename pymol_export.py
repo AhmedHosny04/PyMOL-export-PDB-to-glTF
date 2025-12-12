@@ -1,4 +1,4 @@
-# Version: 1.0
+# Version: 1.0.1
 
 import pymol
 from pymol import cmd 
@@ -32,7 +32,7 @@ def parse_arguments():
     output_filename = sys.argv[4]
     
     # Ensure the output filename has the correct extension
-    if not output_filename.lower().endswith(('.gltf', '.glb')):
+    if not output_filename.lower().endswith(('.gltf')):
         output_filename += '.gltf'
         
     return pdb_filename, output_filename
